@@ -1,9 +1,6 @@
 const routes = require('express').Router()
-const {users} = require('./app/models')
+const urlController = './app/controllers'
+const SessionController = require(`${urlController}/SessionController`)
 
-users.create({
-    name: "Diego",
-    email:"diego@rocketseat.com.br",
-    password_hash:"282222"
-})
+routes.post('/sessions',SessionController.store)
 module.exports = routes 
